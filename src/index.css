@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  @apply bg-cream font-sans text-ink;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  @apply bg-accent-yellow text-ink;
+}
+
+/* Flat scrollbars inside windows */
+.window-body::-webkit-scrollbar {
+  width: 10px;
+}
+.window-body::-webkit-scrollbar-track {
+  @apply bg-cream;
+}
+.window-body::-webkit-scrollbar-thumb {
+  @apply bg-ink;
+}
