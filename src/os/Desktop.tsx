@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { apps } from '../apps/registry'
 import { DesktopIcon } from './DesktopIcon'
@@ -44,13 +45,14 @@ function BackgroundShapes() {
 }
 
 export function Desktop() {
+  const desktopRef = useRef<HTMLDivElement>(null)
   return (
-    <div className="relative h-full w-full select-none overflow-hidden bg-cream">
+    <div ref={desktopRef} className="relative h-full w-full select-none overflow-hidden bg-cream">
       <BackgroundShapes />
 
       <div className="absolute left-4 top-4 flex flex-col gap-4">
         {apps.map((app) => (
-          <DesktopIcon key={app.id} app={app} />
+          <DesktopIcon key={app.id} app={app} dragArea={desktopRef} />
         ))}
       </div>
 

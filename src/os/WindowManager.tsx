@@ -7,7 +7,7 @@ export function WindowManager() {
   const windows = useWindowStore((s) => s.windows)
 
   return (
-    <div className="absolute inset-0 bottom-14 overflow-hidden">
+    <div className="pointer-events-none absolute inset-0 bottom-14 overflow-hidden">
       <AnimatePresence>
         {windows.map((win) => {
           const app = appById(win.appId)

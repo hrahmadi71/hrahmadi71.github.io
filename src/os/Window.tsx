@@ -79,7 +79,11 @@ export function Window({ win, accent, children }: WindowProps) {
     return (
       <div
         className="fixed inset-x-0 top-0"
-        style={{ bottom: TASKBAR_HEIGHT, zIndex: win.zIndex }}
+        style={{
+          bottom: TASKBAR_HEIGHT,
+          zIndex: win.zIndex,
+          pointerEvents: win.minimized ? 'none' : 'auto',
+        }}
         onMouseDown={() => focus(win.id)}
       >
         {frame}
@@ -96,7 +100,7 @@ export function Window({ win, accent, children }: WindowProps) {
           : { width: win.width, height: win.height }
       }
       position={maximized ? { x: 0, y: 0 } : { x: win.x, y: win.y }}
-      style={{ zIndex: win.zIndex }}
+      style={{ zIndex: win.zIndex, pointerEvents: win.minimized ? 'none' : 'auto' }}
       minWidth={280}
       minHeight={180}
       bounds="parent"
