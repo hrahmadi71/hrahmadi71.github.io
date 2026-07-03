@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { resume } from '../data/resume'
+import { appById } from './registry'
+import { useWindowStore } from '../store/windowStore'
 
 const section = {
   hidden: { opacity: 0, y: 16 },
@@ -19,6 +21,17 @@ function SectionTitle({ children }: { children: string }) {
 }
 
 export function ResumeApp() {
+  const openApp = useWindowStore((s) => s.openApp)
+  const openLink = (label: string, url: string) => {
+    const browser = appById('browser')
+    if (!browser) return
+    openApp({
+      appId: browser.id,
+      title: `${label} — ${browser.title}`,
+      defaultSize: browser.defaultSize,
+      params: { url },
+    })
+  }
   return (
     <div className="mx-auto max-w-2xl p-6 sm:p-8">
       <motion.header custom={0} variants={section} initial="hidden" animate="show">
@@ -64,17 +77,16 @@ export function ResumeApp() {
         <SectionTitle>Links</SectionTitle>
         <div className="flex flex-wrap gap-3">
           {resume.links.map((link) => (
-            <motion.a
+            <motion.button
               key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
+              type="button"
+              onClick={() => openLink(link.label, link.url)}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.95 }}
               className="border-[3px] border-ink bg-accent-yellow px-4 py-1.5 font-bold shadow-flat"
             >
               {link.label} ↗
-            </motion.a>
+            </motion.button>
           ))}
         </div>
       </motion.footer>

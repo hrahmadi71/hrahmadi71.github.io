@@ -11,13 +11,19 @@ export interface WindowInstance {
   zIndex: number
   minimized: boolean
   maximized: boolean
+  /** Per-window data passed to the app component, e.g. a URL for the browser */
+  params?: Record<string, string>
 }
 
 export interface AppLaunchConfig {
   appId: string
   title: string
   defaultSize: { width: number; height: number }
+  params?: Record<string, string>
 }
+
+const sameParams = (a?: Record<string, string>, b?: Record<string, string>) =>
+  JSON.stringify(a ?? {}) === JSON.stringify(b ?? {})
 
 interface WindowStore {
   windows: WindowInstance[]
@@ -41,7 +47,9 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
 
   openApp: (config) => {
     const { windows, zCounter } = get()
-    const existing = windows.find((w) => w.appId === config.appId)
+    const existing = windows.find(
+      (w) => w.appId === config.appId && sameParams(w.params, config.params),
+    )
     if (existing) {
       // Un-minimize and bring to front instead of spawning a duplicate
       set({
@@ -69,6 +77,7 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
       zIndex: zCounter + 1,
       minimized: false,
       maximized: false,
+      params: config.params,
     }
     set({ windows: [...windows, win], focusedId: win.id, zCounter: zCounter + 1 })
   },

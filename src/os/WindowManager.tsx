@@ -15,7 +15,7 @@ export function WindowManager() {
           const Body = app.component
           return (
             <Window key={win.id} win={win} accent={app.accent}>
-              <Body />
+              <Body params={win.params} />
             </Window>
           )
         })}

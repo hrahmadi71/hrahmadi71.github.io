@@ -3,7 +3,19 @@ import { ResumeApp } from './ResumeApp'
 import { Game2048App } from './Game2048App'
 import { AppearanceApp } from './AppearanceApp'
 import { AboutApp } from './AboutApp'
-import { PdfFileIcon, Game2048Icon, AppearanceIcon, AboutIcon } from '../components/icons/FlatIcons'
+import { BrowserApp } from './BrowserApp'
+import {
+  PdfFileIcon,
+  Game2048Icon,
+  AppearanceIcon,
+  AboutIcon,
+  BrowserIcon,
+} from '../components/icons/FlatIcons'
+
+/** Props every app component receives; `params` comes from the window instance. */
+export interface AppProps {
+  params?: Record<string, string>
+}
 
 export interface AppDef {
   id: string
@@ -12,7 +24,7 @@ export interface AppDef {
   /** Window titlebar text */
   title: string
   icon: ComponentType
-  component: ComponentType
+  component: ComponentType<AppProps>
   defaultSize: { width: number; height: number }
   /** Tailwind bg class for the window titlebar */
   accent: string
@@ -47,6 +59,16 @@ export const apps: AppDef[] = [
     component: AppearanceApp,
     defaultSize: { width: 480, height: 560 },
     accent: 'bg-accent-purple',
+    desktop: false,
+  },
+  {
+    id: 'browser',
+    label: 'Browser',
+    title: 'Browser',
+    icon: BrowserIcon,
+    component: BrowserApp,
+    defaultSize: { width: 900, height: 640 },
+    accent: 'bg-accent-blue',
     desktop: false,
   },
   {

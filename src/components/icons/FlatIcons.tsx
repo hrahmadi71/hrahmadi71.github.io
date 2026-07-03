@@ -40,6 +40,16 @@ export function AboutIcon() {
   )
 }
 
+export function BrowserIcon() {
+  return (
+    <svg viewBox="0 0 48 48" className="h-full w-full">
+      <circle cx="24" cy="24" r="20" fill="#2f80fa" stroke="#1f1a17" strokeWidth="3" />
+      <ellipse cx="24" cy="24" rx="9" ry="20" fill="none" stroke="#1f1a17" strokeWidth="2.5" />
+      <path d="M4 24h40M7 14h34M7 34h34" fill="none" stroke="#1f1a17" strokeWidth="2.5" />
+    </svg>
+  )
+}
+
 export function Game2048Icon() {
   return (
     <svg viewBox="0 0 48 48" className="h-full w-full">
