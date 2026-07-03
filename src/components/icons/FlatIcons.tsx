@@ -12,6 +12,34 @@ export function PdfFileIcon() {
   )
 }
 
+export function AppearanceIcon() {
+  return (
+    <svg viewBox="0 0 48 48" className="h-full w-full">
+      <path
+        d="M24 5C13 5 5 13 5 23.5 5 34 13 42 23 42c3 0 4.5-2 3.6-4.4-.9-2.3.4-4.6 3.4-4.6h5c4.5 0 8-3.5 8-8C43 13.5 34.5 5 24 5z"
+        fill="#fffdf8"
+        stroke="#1f1a17"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
+      <circle cx="16" cy="18" r="4" fill="#f54e00" stroke="#1f1a17" strokeWidth="2.5" />
+      <circle cx="28" cy="13" r="4" fill="#f9bd2b" stroke="#1f1a17" strokeWidth="2.5" />
+      <circle cx="36" cy="22" r="4" fill="#2f80fa" stroke="#1f1a17" strokeWidth="2.5" />
+      <circle cx="14" cy="30" r="4" fill="#36c46c" stroke="#1f1a17" strokeWidth="2.5" />
+    </svg>
+  )
+}
+
+export function AboutIcon() {
+  return (
+    <svg viewBox="0 0 48 48" className="h-full w-full">
+      <circle cx="24" cy="24" r="20" fill="#2f80fa" stroke="#1f1a17" strokeWidth="3" />
+      <rect x="21" y="11" width="6" height="6" fill="#fffdf8" stroke="#1f1a17" strokeWidth="2" />
+      <rect x="21" y="21" width="6" height="16" fill="#fffdf8" stroke="#1f1a17" strokeWidth="2" />
+    </svg>
+  )
+}
+
 export function Game2048Icon() {
   return (
     <svg viewBox="0 0 48 48" className="h-full w-full">

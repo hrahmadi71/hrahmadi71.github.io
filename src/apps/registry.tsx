@@ -1,7 +1,9 @@
 import type { ComponentType } from 'react'
 import { ResumeApp } from './ResumeApp'
 import { Game2048App } from './Game2048App'
-import { PdfFileIcon, Game2048Icon } from '../components/icons/FlatIcons'
+import { AppearanceApp } from './AppearanceApp'
+import { AboutApp } from './AboutApp'
+import { PdfFileIcon, Game2048Icon, AppearanceIcon, AboutIcon } from '../components/icons/FlatIcons'
 
 export interface AppDef {
   id: string
@@ -14,6 +16,8 @@ export interface AppDef {
   defaultSize: { width: number; height: number }
   /** Tailwind bg class for the window titlebar */
   accent: string
+  /** Show an icon on the desktop (default true); false = launched elsewhere, e.g. context menu */
+  desktop?: boolean
 }
 
 export const apps: AppDef[] = [
@@ -34,6 +38,26 @@ export const apps: AppDef[] = [
     component: Game2048App,
     defaultSize: { width: 480, height: 560 },
     accent: 'bg-accent-blue',
+  },
+  {
+    id: 'appearance',
+    label: 'Appearance',
+    title: 'Appearance Settings',
+    icon: AppearanceIcon,
+    component: AppearanceApp,
+    defaultSize: { width: 480, height: 560 },
+    accent: 'bg-accent-purple',
+    desktop: false,
+  },
+  {
+    id: 'about',
+    label: 'About',
+    title: 'About HamidOS',
+    icon: AboutIcon,
+    component: AboutApp,
+    defaultSize: { width: 440, height: 520 },
+    accent: 'bg-accent-green',
+    desktop: false,
   },
 ]
 

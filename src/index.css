@@ -4,8 +4,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme palettes — swapped by data-theme, set from the appearance settings. */
 :root {
   color-scheme: light;
+  --cream: 245 240 232;
+  --paper: 255 253 248;
+  --ink: 31 26 23;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --cream: 33 30 27;
+  --paper: 45 41 37;
+  --ink: 240 234 223;
+}
+
+:root[data-theme='cave'] {
+  color-scheme: dark;
+  --cream: 17 15 13;
+  --paper: 33 30 27;
+  --ink: 236 229 216;
 }
 
 html,
@@ -22,7 +40,9 @@ body {
 }
 
 ::selection {
-  @apply bg-accent-yellow text-ink;
+  /* Fixed colors: yellow needs dark text even when the theme's ink is light */
+  background: #f9bd2b;
+  color: #1f1a17;
 }
 
 /* Flat scrollbars inside windows */
