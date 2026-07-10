@@ -50,6 +50,19 @@ export function BrowserIcon() {
   )
 }
 
+export function PianoIcon() {
+  return (
+    <svg viewBox="0 0 48 48" className="h-full w-full">
+      <rect x="4" y="8" width="40" height="32" fill="#fffdf8" stroke="#1f1a17" strokeWidth="3" strokeLinejoin="round" />
+      <rect x="4" y="8" width="40" height="8" fill="#a970ff" stroke="#1f1a17" strokeWidth="3" strokeLinejoin="round" />
+      <path d="M14 16v24M24 16v24M34 16v24" fill="none" stroke="#1f1a17" strokeWidth="2.5" />
+      <rect x="10.5" y="16" width="7" height="13" fill="#1f1a17" />
+      <rect x="20.5" y="16" width="7" height="13" fill="#1f1a17" />
+      <rect x="30.5" y="16" width="7" height="13" fill="#1f1a17" />
+    </svg>
+  )
+}
+
 export function Game2048Icon() {
   return (
     <svg viewBox="0 0 48 48" className="h-full w-full">

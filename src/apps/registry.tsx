@@ -4,12 +4,14 @@ import { Game2048App } from './Game2048App'
 import { AppearanceApp } from './AppearanceApp'
 import { AboutApp } from './AboutApp'
 import { BrowserApp } from './BrowserApp'
+import { VocalExerciseApp } from './VocalExerciseApp'
 import {
   PdfFileIcon,
   Game2048Icon,
   AppearanceIcon,
   AboutIcon,
   BrowserIcon,
+  PianoIcon,
 } from '../components/icons/FlatIcons'
 
 /** Props every app component receives; `params` comes from the window instance. */
@@ -50,6 +52,15 @@ export const apps: AppDef[] = [
     component: Game2048App,
     defaultSize: { width: 480, height: 560 },
     accent: 'bg-accent-blue',
+  },
+  {
+    id: 'vocal-exercise',
+    label: 'Vocal Exercise',
+    title: 'Vocal Exercise',
+    icon: PianoIcon,
+    component: VocalExerciseApp,
+    defaultSize: { width: 860, height: 420 },
+    accent: 'bg-accent-purple',
   },
   {
     id: 'appearance',
