@@ -15,8 +15,8 @@ export function DesktopIcon({ app, dragArea }: DesktopIconProps) {
 
   return (
     <motion.button
-      // onTap (not onClick) so releasing a drag doesn't launch the app
-      onTap={() => openApp({ appId: app.id, title: app.title, defaultSize: app.defaultSize })}
+      // Double-click to open, so releasing a drag (or a single click) doesn't launch the app
+      onDoubleClick={() => openApp({ appId: app.id, title: app.title, defaultSize: app.defaultSize })}
       drag
       dragConstraints={dragArea}
       dragMomentum={false}
